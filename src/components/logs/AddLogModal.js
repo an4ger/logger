@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
+import TechSelectOptions from '../techs/TechSelectOptions'
 import {addLog} from '../../actions/logActions'
 
 import M from 'materialize-css/dist/js/materialize.min'
@@ -14,8 +15,6 @@ const AddLogModal = ({addLog}) => {
         if (message === '' || tech === '') {
             M.toast({ html: 'Please enter a message and tech' })
         } else {
-            console.log(message, tech, attention)
-
             const newLog = {
                 message,
                 attention,
@@ -62,7 +61,7 @@ const AddLogModal = ({addLog}) => {
                             <option value='' disabled>
                                 Select Technician
                             </option>
-                            <option value="John">John</option>
+                            <TechSelectOptions/>
                         </select>
                     </div>
                 </div>
